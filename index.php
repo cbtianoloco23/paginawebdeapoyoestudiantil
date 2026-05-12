@@ -35,7 +35,7 @@ if (!$resultado) {
 <body>
 
 <header>
-    <img src="logo_cbtis.png" alt="Logo CBTis 165" width="100">
+    <img src="logocbtiano.png" alt="Logo CBTis 165" width="100">
     <h1>Portal de Formación Integral CBTis 165 "Leona Vicario"</h1>
 </header>
 
@@ -52,14 +52,14 @@ if (!$resultado) {
         <h2>Apoyo Académico</h2>
         <div class="grid-programas">
             <div class="card">
-                <img src="img/sinata.jpg" alt="SINATA">
+                <img src="sinata.jpg" alt="SINATA">
                 <div class="card-content">
                     <h3>SINATA</h3>
                     <p>Información sobre tutorías académicas para el apoyo al estudiante.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="img/pronafole.jpg" alt="PRONAFOLE">
+                <img src="pronafole2.jpg" alt="PRONAFOLE">
                 <div class="card-content">
                     <h3>PRONAFOLE</h3>
                     <p>Fomento a la lectura y mejora de habilidades académicas.</p>
@@ -72,14 +72,14 @@ if (!$resultado) {
         <h2>Bienestar y Salud</h2>
         <div class="grid-programas">
             <div class="card">
-                <img src="img/fomalasa.jpg" alt="FOMALASA">
+                <img src="fomalasa.jpg" alt="FOMALASA">
                 <div class="card-content">
                     <h3>FOMALASA</h3>
                     <p>Servicios del Consultorio Médico para la comunidad escolar.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="img/sexual.jpg" alt="Responsable">
+                <img src="sexual.jpg" alt="Responsable">
                 <div class="card-content">
                     <h3>Consultorio Sexual-Mente Responsable</h3>
                     <p>Asesoría integral en salud mental y reproductiva.</p>
@@ -92,14 +92,14 @@ if (!$resultado) {
         <h2>Desarrollo Integral</h2>
         <div class="grid-programas">
             <div class="card">
-                <img src="img/ecale.jpg" alt="ECALE">
+                <img src="cineeeeee.jpg" alt="ECALE">
                 <div class="card-content">
                     <h3>ECALE</h3>
                     <p>Actividades del Cine Club y expresiones culturales.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="img/ama.jpg" alt="AMA DGETI">
+                <img src="ambiente.jpg" alt="AMA DGETI">
                 <div class="card-content">
                     <h3>AMA DGETI</h3>
                     <p>Programa de cuidado y respeto al medio ambiente.</p>
@@ -127,8 +127,8 @@ if (!$resultado) {
                     echo "<tr>
                         <td>{$fila['id']}</td>
                         <td>{$fila['nombre_programa']}</td>
-                        <td>{$fila['descripcion']}</td>
-                        <td>{$fila['area_impacto']}</td>
+                        <td>{$fila['informacion']}</td>
+                        <td>{$fila['en_que_impacta']}</td>
                         <td>{$fila['requisitos']}</td>
                     </tr>";
                 }
@@ -142,8 +142,25 @@ if (!$resultado) {
         <div class="formulario-contacto">
             <form action="index.php" method="POST">
                 <p>¿Tienes alguna duda sobre los programas? Escríbela aquí:</p>
-                <input type="text" name="pregunta_estudiante" placeholder="Tu pregunta aquí..." required>
+                <input type="text" name="respuesta" placeholder="Tu pregunta aquí..." required>
                 <button type="submit" class="btn-enviar">Enviar Comentario</button>
+                <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+if(isset($_POST['enviar'])){
+    // 1. Recibimos datos
+    $respuesta = $_POST['respuesta'];
+    $sql = "INSERT INTO formulario (respuesta) VALUES ('$respuesta')";
+    $query = mysqli_query($conexion, $sql);
+
+    if($query){
+        echo "¡Muchas gracias por escribir en que te ayudo mas!.";
+    } else {
+        // ESTA LÍNEA ES CLAVE: Te dirá qué tiene de malo tu base de datos
+        echo "Error de SQL: " . mysqli_error($conexion);
+    }
+} 
+?>
             </form>
         </div>
     </section>
