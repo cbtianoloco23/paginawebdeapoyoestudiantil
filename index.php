@@ -168,7 +168,7 @@ if(isset($_POST['enviar'])){
 
 <footer>
     <p>CBTis 165 "Leona Vicario" | Calle Leona Vicario, Coatepec</p>
-    <p>Desarrollado por: <strong>Fabián</strong> | 2026</p>
+    <p>Desarrollado por: <strong>carlos pedraza</strong> | 2026</p>
 </footer>
 
 </body>

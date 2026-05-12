@@ -50,5 +50,83 @@ ul li::before {
     content: "•";
     color: var(--dorado);
     font-weight: bold;
-    display: inline-block
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Diseño para las imágenes (evita que se rompan) */
+img {
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    margin: 10px 5px;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+    border-color: var(--dorado);
+}
+
+/* --- SECCIÓN DE OPINIÓN (FORMULARIO) --- */
+.opinion-section {
+    background-color: #f9f9f9;
+    border-top: 4px solid var(--guinda);
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: var(--guinda);
+    box-shadow: 0 0 5px rgba(109, 29, 45, 0.3);
+}
+
+input[type="submit"], button {
+    background-color: var(--guinda);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--dorado);
+}
+
+/* --- FOOTER (DATOS DEL CBTIS) --- */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+footer b {
+    color: var(--dorado);
+}
+
+/* Responsivo para celulares */
+@media (max-width: 600px) {
+    input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .main-container {
+        padding: 15px;
+    }
 }
