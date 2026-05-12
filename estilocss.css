@@ -1,150 +1,124 @@
-/* --- CONFIGURACIÓN PROFESIONAL CBTIS 165 --- */
 :root {
     --guinda: #6D1D2D;
     --dorado: #B38E5D;
-    --dorado-suave: #f1e7d5;
-    --gris-fondo: #f8f9fa;
-    --negro-footer: #121212;
-    --blanco: #ffffff;
+    --gris: #f4f4f4;
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
-    background-color: var(--gris-fondo);
-    color: #333;
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    line-height: 1.6;
+    background-color: #fdfdfd;
 }
 
-/* --- NAVEGACIÓN MODERNA --- */
-nav {
+/* Header */
+header {
     background-color: var(--guinda);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 5px solid var(--dorado);
+}
+
+.logo {
+    width: 80px;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+}
+
+/* Navegación */
+nav {
+    background: #2e2e2e;
+    padding: 15px;
+    text-align: center;
     position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 100;
 }
 
 nav a {
-    color: var(--blanco);
+    color: white;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    margin: 0 15px;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
 nav a:hover {
-    background-color: var(--dorado);
-    color: var(--guinda);
+    color: var(--dorado);
 }
 
-/* --- CONTENEDOR DE LA PÁGINA --- */
+/* Contenedor y Secciones */
 .container {
-    max-width: 1000px;
-    margin: 30px auto;
-    background: var(--blanco);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
 }
 
-/* --- TÍTULOS CON ESTILO --- */
-h1 {
+.section-title {
     color: var(--guinda);
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    border-bottom: 3px solid var(--dorado);
-    display: inline-block;
-    width: 100%;
-    padding-bottom: 10px;
-}
-
-h2 {
-    color: var(--guinda);
-    border-left: 6px solid var(--dorado);
+    border-left: 5px solid var(--dorado);
     padding-left: 15px;
-    margin-top: 50px;
-    font-size: 1.4rem;
+    margin-bottom: 25px;
 }
 
-/* --- CONTROL DE IMÁGENES (Lo más importante) --- */
-/* Esto hará que tus fotos no se vean gigantes y tengan un marco */
-img {
-    display: block;
-    max-width: 90%; /* No ocupa todo el ancho, deja aire */
-    height: auto;
-    margin: 25px auto;
+/* Grid de Programas (Evita imágenes gigantes) */
+.grid-programas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: white;
     border-radius: 10px;
-    border: 4px solid var(--dorado-suave);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transition: transform 0.4s ease;
-}
-
-img:hover {
-    transform: translateY(-5px);
-    border-color: var(--dorado);
-}
-
-/* --- BUZÓN DE DUDAS / FORMULARIO --- */
-.buzon-area {
-    background-color: var(--gris-fondo);
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    margin-top: 40px;
-}
-
-input[type="text"] {
-    width: 75%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-
-input[type="submit"], .btn-enviar {
-    background-color: var(--guinda);
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: 0.3s;
 }
 
-input[type="submit"]:hover {
-    background-color: var(--dorado);
-    transform: scale(1.05);
+.card:hover { transform: translateY(-5px); }
+
+.card img {
+    width: 100%;
+    height: 200px; /* Tamaño fijo para que todas se vean iguales */
+    object-fit: cover; /* Recorta la imagen para que rellene el espacio */
 }
 
-/* --- FOOTER ELEGANTE --- */
-footer {
-    background-color: var(--negro-footer);
-    color: #bbb;
-    padding: 40px 20px;
-    margin-top: 60px;
+.card-body { padding: 20px; }
+.card-body h3 { color: var(--guinda); margin-top: 0; }
+
+/* Tabla */
+.table-container { overflow-x: auto; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+}
+th { background: var(--guinda); color: white; padding: 12px; }
+td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+tr:nth-child(even) { background: #f9f9f9; }
+
+/* Formulario */
+.buzon-area {
+    background: var(--gris);
+    padding: 30px;
+    border-radius: 10px;
     text-align: center;
-    font-size: 0.85rem;
 }
+.form-group { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+input[type="text"] { width: 60%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; }
+.btn-enviar { background: var(--guinda); color: white; border: none; padding: 10px 25px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+.btn-enviar:hover { background: var(--dorado); }
 
-footer strong {
-    color: var(--dorado);
-    font-size: 1rem;
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: #999;
+    padding: 40px;
+    text-align: center;
+    margin-top: 50px;
 }
-
-/* --- RESPONSIVO PARA MÓVIL --- */
-@media (max-width: 768px) {
-    nav { flex-wrap: wrap; }
-    .container { width: 95%; padding: 20px; }
-    input[type="text"] { width: 100%; margin-bottom: 10px; }
-}
+footer strong { color: var(--dorado); }

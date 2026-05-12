@@ -1,174 +1,161 @@
 <?php
-
-$host = getenv('MYSQLHOST') ;
-$port = getenv('MYSQLPORT') ;
-$user = getenv('MYSQLUSER') ;
-$pass = getenv('MYSQLPASSWORD') ;
-$db   = getenv('MYSQLDATABASE') ;
+// Configuración de conexión (Mantenemos tu lógica de Railway/Environment)
+$host = getenv('MYSQLHOST');
+$port = getenv('MYSQLPORT');
+$user = getenv('MYSQLUSER');
+$pass = getenv('MYSQLPASSWORD');
+$db   = getenv('MYSQLDATABASE');
 
 $conexion = mysqli_connect($host, $user, $pass, $db, $port);
-
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
-}
-
-// Esto es vital para los acentos
+if (!$conexion) { die("Error de conexión: " . mysqli_connect_error()); }
 mysqli_set_charset($conexion, "utf8");
-?>
-<?php
-// 2. Consulta para obtener los programas de la tabla
-$query = "SELECT * FROM programas";
-$resultado = mysqli_query($conexion, $query); 
-
-// Verificación de seguridad
-if (!$resultado) {
-    die("Error en la consulta: " . mysqli_error($conexion));
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoyo Estudiantil - CBTis 165</title>
     <link rel="stylesheet" href="estilocss.css">
 </head>
 <body>
 
 <header>
-    <img src="logocbtiano.jpg" alt="Logo CBTis 165" width="100">
-    <h1>Portal de Formación Integral CBTis 165 "Leona Vicario"</h1>
+    <div class="header-content">
+        <img src="logocbtiano.jpg" alt="Logo CBTis 165" class="logo">
+        <h1>Portal de Formación Integral CBTis 165</h1>
+        <p class="subtitulo">"Leona Vicario" - Coatepec, Veracruz</p>
+    </div>
 </header>
 
 <nav>
     <a href="#academico">Académico</a>
     <a href="#salud">Salud</a>
     <a href="#integral">Integral</a>
-    <a href="#talento">Talento</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#tabla-datos">Programas</a>
+    <a href="#contacto">Buzón</a>
 </nav>
 
-<main>
+<main class="container">
+    
     <section id="academico">
-        <h2>Apoyo Académico</h2>
+        <h2 class="section-title">Apoyo Académico</h2>
         <div class="grid-programas">
             <div class="card">
                 <img src="sinata.jpg" alt="SINATA">
-                <div class="card-content">
+                <div class="card-body">
                     <h3>SINATA</h3>
-                    <p>Información sobre tutorías académicas para el apoyo al estudiante.</p>
+                    <p>El Sistema Nacional de Tutorías brinda acompañamiento personalizado para disminuir el índice de reprobación y fortalecer tu trayectoria académica.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="pronafole2.jpg" alt="PRONAFOLE">
-                <div class="card-content">
+                <div class="card-body">
                     <h3>PRONAFOLE</h3>
-                    <p>Fomento a la lectura y mejora de habilidades académicas.</p>
+                    <p>Programa Nacional de Fomento a la Lectura. Participa en círculos de lectura, tertulias literarias y concursos de creación de textos.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="salud">
-        <h2>Bienestar y Salud</h2>
+        <h2 class="section-title">Bienestar y Salud</h2>
         <div class="grid-programas">
             <div class="card">
                 <img src="fomalasa.jpg" alt="FOMALASA">
-                <div class="card-content">
+                <div class="card-body">
                     <h3>FOMALASA</h3>
-                    <p>Servicios del Consultorio Médico para la comunidad escolar.</p>
+                    <p>Fomento a la Salud. Promovemos estilos de vida saludables, prevención de adicciones y campañas de vacunación para toda la comunidad.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="sexual.jpg" alt="Responsable">
-                <div class="card-content">
-                    <h3>Consultorio Sexual-Mente Responsable</h3>
-                    <p>Asesoría integral en salud mental y reproductiva.</p>
+                <div class="card-body">
+                    <h3>Salud Mental y Reproductiva</h3>
+                    <p>Asesoría especializada para jóvenes. Contamos con consultorio "Sexual-Mente Responsable" para informarte y cuidarte.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="integral">
-        <h2>Desarrollo Integral</h2>
+        <h2 class="section-title">Desarrollo Integral</h2>
         <div class="grid-programas">
             <div class="card">
                 <img src="cineeeeee.jpg" alt="ECALE">
-                <div class="card-content">
-                    <h3>ECALE</h3>
-                    <p>Actividades del Cine Club y expresiones culturales.</p>
+                <div class="card-body">
+                    <h3>ECALE (Cine Club)</h3>
+                    <p>El Cine en la Escuela. Analizamos películas seleccionadas para fomentar la reflexión grupal, los valores y el pensamiento crítico de los alumnos.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="ambiente.jpg" alt="AMA DGETI">
-                <div class="card-content">
+                <div class="card-body">
                     <h3>AMA DGETI</h3>
-                    <p>Programa de cuidado y respeto al medio ambiente.</p>
+                    <p>Acciones por el Medio Ambiente. Participa en reforestaciones, reciclaje y proyectos de sustentabilidad para cuidar nuestro entorno.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="tabla-datos">
-        <h2>Listado General de Programas</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Programa</th>
-                    <th>Descripción</th>
-                    <th>Área</th>
-                    <th>Requisitos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $resultado = mysqli_query($conexion, "SELECT * FROM programas");
-                while ($fila = mysqli_fetch_assoc($resultado)) {
-                    echo "<tr>
-                        <td>{$fila['id']}</td>
-                        <td>{$fila['nombre']}</td>
-                        <td>{$fila['informacion']}</td>
-                        <td>{$fila['en_que_impacta']}</td>
-                        <td>{$fila['requisitos']}</td>
-                    </tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+        <h2 class="section-title">Catálogo de Programas</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Programa</th>
+                        <th>Impacto</th>
+                        <th>Requisitos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $resultado = mysqli_query($conexion, "SELECT * FROM programas");
+                    while ($fila = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>
+                            <td>{$fila['id']}</td>
+                            <td><strong>{$fila['nombre']}</strong></td>
+                            <td>{$fila['en_que_impacta']}</td>
+                            <td>{$fila['requisitos']}</td>
+                        </tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <section id="contacto">
+    <section id="contacto" class="buzon-area">
         <h2>Buzón de Dudas</h2>
-        <div class="formulario-contacto">
-            <form action="index.php" method="POST">
-                <p>¿Tienes alguna duda sobre los programas? Escríbela aquí:</p>
-                <input type="text" name="respuesta" placeholder="Tu pregunta aquí..." required>
-                <button type="submit" class="btn-enviar">Enviar Comentario</button>
-                <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-if(isset($_POST['enviar'])){
-    // 1. Recibimos datos
-    $respuesta = $_POST['respuesta'];
-    $sql = "INSERT INTO formulario (respuesta) VALUES ('$respuesta')";
-    $query = mysqli_query($conexion, $sql);
-
-    if($query){
-        echo "¡Muchas gracias por escribir en que te ayudo mas!.";
-    } else {
-        // ESTA LÍNEA ES CLAVE: Te dirá qué tiene de malo tu base de datos
-        echo "Error de SQL: " . mysqli_error($conexion);
-    }
-} 
-?>
-            </form>
-        </div>
+        <form method="POST">
+            <p>Escribe tu duda y te apoyaremos a la brevedad:</p>
+            <div class="form-group">
+                <input type="text" name="respuesta" placeholder="Escribe aquí tu duda o comentario..." required>
+                <button type="submit" name="enviar" class="btn-enviar">Enviar</button>
+            </div>
+            <?php
+            if(isset($_POST['enviar'])){
+                $respuesta = mysqli_real_escape_string($conexion, $_POST['respuesta']);
+                $sql = "INSERT INTO formulario (respuesta) VALUES ('$respuesta')";
+                if(mysqli_query($conexion, $sql)){
+                    echo "<p class='msg-success'>¡Mensaje enviado con éxito!</p>";
+                }
+            }
+            ?>
+        </form>
     </section>
 </main>
 
 <footer>
-    <p>CBTis 165 "Leona Vicario" | Calle Leona Vicario, Coatepec</p>
-    <p>Desarrollado por: <strong>carlos pedraza</strong> | 2026</p>
+    <div class="footer-info">
+        <p><strong>CBTis No. 165 "Leona Vicario"</strong></p>
+        <p>Calle Leona Vicario S/N, Col. Consolapa, C.P. 91500</p>
+        <p>Coatepec, Veracruz, México.</p>
+        <hr>
+        <p>Desarrollado por: <strong>Carlos Pedraza</strong> | 2º Parcial | 2026</p>
+    </div>
 </footer>
 
 </body>
