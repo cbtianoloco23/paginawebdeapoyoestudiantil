@@ -1,0 +1,25 @@
+body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; color: #333; background-color: #f4f4f4; }
+header { background: #800000; color: white; padding: 2rem; text-align: center; }
+nav { background: #333; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; }
+nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+nav a:hover { color: #ffcc00; }
+
+main { padding: 20px; max-width: 1100px; margin: auto; background: white; }
+section { border-bottom: 1px solid #eee; padding: 40px 20px; }
+h2 { color: #800000; border-left: 5px solid #800000; padding-left: 10px; }
+
+.grid-programas { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.card { background: #fff; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; text-align: center; }
+.card img { width: 100%; height: 250px; object-fit: cover; background: #eee; }
+.card-content { padding: 15px; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #800000; color: white; }
+
+.formulario-contacto { background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 20px; border: 1px solid #ddd; }
+.formulario-contacto input[type="text"] { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+.btn-enviar { background: #800000; color: white; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+.btn-enviar:hover { background: #a00000; }
+
+footer { background: #222; color: white; text-align: center; padding: 2rem; margin-top: 40px; }
