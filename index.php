@@ -126,7 +126,7 @@ if (!$resultado) {
                 while ($fila = mysqli_fetch_assoc($resultado)) {
                     echo "<tr>
                         <td>{$fila['id']}</td>
-                        <td>{$fila['nombre_programa']}</td>
+                        <td>{$fila['nombre']}</td>
                         <td>{$fila['informacion']}</td>
                         <td>{$fila['en_que_impacta']}</td>
                         <td>{$fila['requisitos']}</td>

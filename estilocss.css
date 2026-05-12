@@ -1,132 +1,150 @@
-/* --- ESTILOS PARA LA PÁGINA CBTIS 165 --- */
-
+/* --- CONFIGURACIÓN PROFESIONAL CBTIS 165 --- */
 :root {
     --guinda: #6D1D2D;
     --dorado: #B38E5D;
-    --gris-oscuro: #2E2E2E;
+    --dorado-suave: #f1e7d5;
+    --gris-fondo: #f8f9fa;
+    --negro-footer: #121212;
     --blanco: #ffffff;
-    --fondo-gris: #f4f4f4;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--fondo-gris);
+    font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+    background-color: var(--gris-fondo);
     color: #333;
     margin: 0;
-    padding: 0;
+    line-height: 1.6;
 }
 
-/* Contenedor principal para que no se pegue a las orillas */
-.main-container {
-    max-width: 1100px;
-    margin: 0 auto;
+/* --- NAVEGACIÓN MODERNA --- */
+nav {
+    background-color: var(--guinda);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background-color: var(--dorado);
+    color: var(--guinda);
+}
+
+/* --- CONTENEDOR DE LA PÁGINA --- */
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
     background: var(--blanco);
-    padding: 30px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* Títulos de las secciones (Desarrollo Integral, etc.) */
-h2, h3 {
+/* --- TÍTULOS CON ESTILO --- */
+h1 {
+    color: var(--guinda);
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--dorado);
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+h2 {
     color: var(--guinda);
     border-left: 6px solid var(--dorado);
     padding-left: 15px;
-    text-transform: uppercase;
-    margin-top: 40px;
-    font-weight: bold;
+    margin-top: 50px;
+    font-size: 1.4rem;
 }
 
-/* Estilo para los textos informativos (ECALE, AMA DGETI, etc.) */
-b, strong {
-    color: var(--guinda);
-}
-
-/* Listas de Clubes */
-ul {
-    list-style: none;
-    padding-left: 20px;
-}
-
-ul li::before {
-    content: "•";
-    color: var(--dorado);
-    font-weight: bold;
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
-}
-
-/* Diseño para las imágenes (evita que se rompan) */
+/* --- CONTROL DE IMÁGENES (Lo más importante) --- */
+/* Esto hará que tus fotos no se vean gigantes y tengan un marco */
 img {
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    margin: 10px 5px;
-    transition: transform 0.3s ease;
+    display: block;
+    max-width: 90%; /* No ocupa todo el ancho, deja aire */
+    height: auto;
+    margin: 25px auto;
+    border-radius: 10px;
+    border: 4px solid var(--dorado-suave);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease;
 }
 
 img:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
     border-color: var(--dorado);
 }
 
-/* --- SECCIÓN DE OPINIÓN (FORMULARIO) --- */
-.opinion-section {
-    background-color: #f9f9f9;
-    border-top: 4px solid var(--guinda);
-    padding: 20px;
-    margin-top: 50px;
-    border-radius: 5px;
+/* --- BUZÓN DE DUDAS / FORMULARIO --- */
+.buzon-area {
+    background-color: var(--gris-fondo);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-top: 40px;
 }
 
 input[type="text"] {
-    width: 60%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
+    width: 75%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
 }
 
-input[type="text"]:focus {
-    border-color: var(--guinda);
-    box-shadow: 0 0 5px rgba(109, 29, 45, 0.3);
-}
-
-input[type="submit"], button {
+input[type="submit"], .btn-enviar {
     background-color: var(--guinda);
     color: white;
+    padding: 12px 25px;
     border: none;
-    padding: 10px 25px;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
 input[type="submit"]:hover {
     background-color: var(--dorado);
+    transform: scale(1.05);
 }
 
-/* --- FOOTER (DATOS DEL CBTIS) --- */
+/* --- FOOTER ELEGANTE --- */
 footer {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: var(--gris-oscuro);
-    color: var(--blanco);
-    text-align: left;
-    font-size: 14px;
-    line-height: 1.8;
+    background-color: var(--negro-footer);
+    color: #bbb;
+    padding: 40px 20px;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 0.85rem;
 }
 
-footer b {
+footer strong {
     color: var(--dorado);
+    font-size: 1rem;
 }
 
-/* Responsivo para celulares */
-@media (max-width: 600px) {
-    input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    .main-container {
-        padding: 15px;
-    }
+/* --- RESPONSIVO PARA MÓVIL --- */
+@media (max-width: 768px) {
+    nav { flex-wrap: wrap; }
+    .container { width: 95%; padding: 20px; }
+    input[type="text"] { width: 100%; margin-bottom: 10px; }
 }
