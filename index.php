@@ -16,7 +16,7 @@ mysqli_set_charset($conexion, "utf8");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoyo Estudiantil - CBTis 165</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="estilocss.css">
 </head>
 <body>
 
