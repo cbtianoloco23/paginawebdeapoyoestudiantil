@@ -1,151 +1,94 @@
 
     :root {
-        --cbtis-guinda: #63113d; /* Guinda más profundo y elegante */
-        --cbtis-dorado: #d4af37; /* Dorado metálico */
-        --fondo-crema: #fdfbf7;
-        --texto-oscuro: #2d2d2d;
+        --guinda: #800020;
+        --dorado: #D4AF37; /* Un dorado más vibrante para contraste */
+        --oscuro: #121212;
+        --tarjeta: #1e1e1e;
+        --texto-gris: #e0e0e0;
     }
 
     body {
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-        background-color: var(--fondo-crema);
-        display: flex;
-        flex-direction: column;
+        background-color: var(--oscuro);
+        color: var(--texto-gris);
+        font-family: 'Inter', sans-serif;
     }
 
-    /* --- SIDEBAR HEADER (Diferente a los headers de arriba) --- */
-    @media (min-width: 900px) {
-        body { flex-direction: row; }
-        header { 
-            width: 300px; 
-            height: 100vh; 
-            position: fixed; 
-            flex-direction: column !important;
-            justify-content: center !important;
-            text-align: center;
-        }
-        main { margin-left: 300px; width: calc(100% - 300px); }
-        nav { 
-            position: relative !important; 
-            background: transparent !important; 
-            width: 100%;
-        }
-        nav ul { flex-direction: column; }
-    }
-
+    /* Header tipo Banner */
     header {
-        background-color: var(--cbtis-guinda);
-        color: white;
-        padding: 40px 20px;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        border-right: 8px solid var(--cbtis-dorado);
+        background-color: var(--oscuro);
+        border-left: 15px solid var(--guinda);
+        padding: 50px;
+        text-align: left;
     }
 
-    .logo-container img {
-        width: 120px;
-        height: auto;
-        border-radius: 0; /* Quitamos el círculo típico */
-        filter: brightness(1.2);
-        border-bottom: 3px solid var(--cbtis-dorado);
+    header h1 {
+        border-bottom: 2px solid var(--dorado);
+        display: inline-block;
         padding-bottom: 10px;
     }
 
-    /* --- NAVEGACIÓN VERTICAL --- */
-    nav a {
-        color: rgba(255,255,255,0.7);
-        text-decoration: none;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        padding: 15px;
-        display: block;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: var(--cbtis-dorado);
-        padding-left: 25px; /* Efecto de desplazamiento */
-    }
-
-    /* --- MAIN CONTENT --- */
-    main { padding: 40px; box-sizing: border-box; }
-
-    section { margin-bottom: 60px; }
-
-    h2 {
-        font-size: 3rem;
-        color: var(--cbtis-guinda);
-        opacity: 0.1; /* Texto de fondo gigante */
-        position: absolute;
-        margin-top: -40px;
-        z-index: -1;
-    }
-
-    /* --- TARJETAS ASIMÉTRICAS --- */
-    .programa-card {
-        background: white;
-        padding: 40px;
-        border-radius: 0 50px 0 50px; /* Esquinas opuestas redondeadas */
-        border: 1px solid #eee;
-        box-shadow: 20px 20px 0px var(--cbtis-dorado); /* Sombra sólida, no difuminada */
+    /* Navegación lateral integrada */
+    nav {
+        background-color: var(--guinda);
+        padding: 0;
         margin-bottom: 50px;
-        transition: 0.4s;
     }
 
-    .programa-card:hover {
-        transform: translate(-5px, -5px);
-        box-shadow: 25px 25px 0px var(--cbtis-guinda);
+    nav ul { display: flex; justify-content: flex-start; list-style: none; margin: 0; }
+    nav a { 
+        color: white; 
+        padding: 20px 40px; 
+        display: block; 
+        text-decoration: none;
+        border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    nav a:hover { background-color: var(--dorado); color: var(--oscuro); }
+
+    /* Tarjetas tipo "Panel de Control" */
+    .programa-card {
+        background-color: var(--tarjeta);
+        border: none;
+        border-top: 4px solid var(--guinda);
+        padding: 25px;
+        border-radius: 4px;
+        position: relative;
     }
 
-    /* --- ADIÓS A LA TABLA TRADICIONAL --- */
-    /* Vamos a hacer que la tabla parezca un listado de lujo */
+    .programa-card::after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0;
+        width: 40px; height: 40px;
+        background: linear-gradient(45deg, transparent 50%, var(--dorado) 50%);
+    }
+
+    /* Tabla Neón Institucional */
     table {
         width: 100%;
-        border-collapse: collapse;
-        background: transparent;
+        background-color: var(--tarjeta);
+        border-radius: 8px;
     }
+    thead tr { background-color: #000; color: var(--dorado); }
+    th, td { padding: 15px; border-bottom: 1px solid #333; }
+    tbody tr:hover { background-color: rgba(128, 0, 32, 0.2); }
 
-    thead { display: none; } /* Escondemos el encabezado para un look más limpio */
-
-    tbody tr {
-        display: grid;
-        grid-template-columns: 50px 1fr 1fr;
-        background: white;
-        margin-bottom: 15px;
-        padding: 20px;
-        border-left: 10px solid var(--cbtis-dorado);
-        align-items: center;
-        border-radius: 0 10px 10px 0;
-    }
-
-    td { border: none; color: var(--texto-oscuro); }
-    td strong { color: var(--cbtis-guinda); font-size: 1.2rem; }
-
-    /* --- BOTÓN Y FORMULARIO --- */
+    /* Formulario */
     .formulario-consulta {
-        background: var(--cbtis-guinda);
+        border: 1px dashed var(--dorado);
+        background: transparent;
+        padding: 30px;
+    }
+
+    input[type="text"] {
+        background: #252525;
+        border: 1px solid var(--guinda);
         color: white;
-        padding: 50px;
-        border-radius: 20px;
+        padding: 10px;
     }
 
-    .btn-submit {
-        background: var(--cbtis-dorado);
-        color: var(--cbtis-guinda);
-        font-weight: bold;
-        border: none;
-        padding: 15px 40px;
-        border-radius: 0;
-        cursor: pointer;
-        clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* Botón con forma de trapecio */
-    }
-
-    /* --- IMÁGENES --- */
     img {
-        border: 10px solid white;
-        outline: 1px solid #ddd;
-        transform: rotate(-1deg); /* Ligera rotación para estilo artístico */
+        filter: grayscale(0.4) contrast(1.1);
+        border: 1px solid var(--dorado);
     }
+
+    
