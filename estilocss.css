@@ -1,124 +1,80 @@
-:root {
-    --guinda: #6D1D2D;
-    --dorado: #B38E5D;
-    --gris: #f4f4f4;
-}
+<style>
+    :root {
+        --guinda: #800020;
+        --dorado: #b8860b;
+        --fondo: #fdfaf6;
+        --blanco-puro: #ffffff;
+    }
 
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    background-color: #fdfdfd;
-}
+    body {
+        font-family: 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--fondo);
+        margin: 0;
+    }
 
-/* Header */
-header {
-    background-color: var(--guinda);
-    color: white;
-    padding: 30px;
-    text-align: center;
-    border-bottom: 5px solid var(--dorado);
-}
+    /* Header con degradado suave guinda */
+    header {
+        background: linear-gradient(135deg, var(--guinda) 0%, #5d0017 100%);
+        color: white;
+        padding: 4rem 1rem;
+        text-align: center;
+        border-bottom: 6px solid var(--dorado);
+    }
 
-.logo {
-    width: 80px;
-    border-radius: 50%;
-    background: white;
-    padding: 5px;
-}
+    /* Menú flotante estilo "Pill" */
+    nav {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        width: fit-content;
+        margin: -30px auto 30px;
+        padding: 5px 20px;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 20px;
+        z-index: 1000;
+    }
 
-/* Navegación */
-nav {
-    background: #2e2e2e;
-    padding: 15px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+    nav ul { display: flex; list-style: none; padding: 0; margin: 0; }
+    nav a { 
+        color: var(--guinda); 
+        text-decoration: none; 
+        padding: 12px 20px; 
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    nav a:hover { color: var(--dorado); }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+    /* Tarjetas con efecto de cristal */
+    .programa-card {
+        background: var(--blanco-puro);
+        border: 1px solid rgba(184, 134, 11, 0.2);
+        border-radius: 30px;
+        padding: 30px;
+        margin-bottom: 25px;
+        box-shadow: 0 15px 35px rgba(128, 0, 32, 0.05);
+    }
 
-nav a:hover {
-    color: var(--dorado);
-}
+    h2 { color: var(--guinda); font-weight: 800; text-transform: uppercase; }
 
-/* Contenedor y Secciones */
-.container {
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 20px;
-}
+    /* Tabla minimalista sin bordes negros */
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+    th { color: var(--dorado); text-align: left; padding: 15px; }
+    tbody tr { background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+    td { padding: 20px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
+    td:first-child { border-radius: 15px 0 0 15px; }
+    td:last-child { border-radius: 0 15px 15px 0; }
 
-.section-title {
-    color: var(--guinda);
-    border-left: 5px solid var(--dorado);
-    padding-left: 15px;
-    margin-bottom: 25px;
-}
-
-/* Grid de Programas (Evita imágenes gigantes) */
-.grid-programas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-}
-
-.card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.card:hover { transform: translateY(-5px); }
-
-.card img {
-    width: 100%;
-    height: 200px; /* Tamaño fijo para que todas se vean iguales */
-    object-fit: cover; /* Recorta la imagen para que rellene el espacio */
-}
-
-.card-body { padding: 20px; }
-.card-body h3 { color: var(--guinda); margin-top: 0; }
-
-/* Tabla */
-.table-container { overflow-x: auto; }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    background: white;
-}
-th { background: var(--guinda); color: white; padding: 12px; }
-td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-tr:nth-child(even) { background: #f9f9f9; }
-
-/* Formulario */
-.buzon-area {
-    background: var(--gris);
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-}
-.form-group { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
-input[type="text"] { width: 60%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; }
-.btn-enviar { background: var(--guinda); color: white; border: none; padding: 10px 25px; cursor: pointer; border-radius: 5px; font-weight: bold; }
-.btn-enviar:hover { background: var(--dorado); }
-
-/* Footer */
-footer {
-    background: #1a1a1a;
-    color: #999;
-    padding: 40px;
-    text-align: center;
-    margin-top: 50px;
-}
-footer strong { color: var(--dorado); }
+    .btn-submit {
+        background-color: var(--guinda);
+        border: 2px solid var(--dorado);
+        color: white;
+        border-radius: 12px;
+        padding: 12px 30px;
+        cursor: pointer;
+    }
+</style>
