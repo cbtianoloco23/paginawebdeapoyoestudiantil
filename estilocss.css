@@ -1,4 +1,4 @@
-<style>
+
     :root {
         --guinda: #800020;
         --dorado: #D4AF37; /* Un dorado más vibrante para contraste */
@@ -90,4 +90,3 @@
         filter: grayscale(0.4) contrast(1.1);
         border: 1px solid var(--dorado);
     }
-</style>
